@@ -159,6 +159,11 @@ window.addEventListener("DOMContentLoaded", function() {
 
 	var getData = function () {
 		toggleControls("on");
+		if (localStorage.length === 0) {
+			alert("There is no data in Local Storage so data was added. ");
+			autoFillData();
+		}
+
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
@@ -174,6 +179,7 @@ window.addEventListener("DOMContentLoaded", function() {
 			 var obj = JSON.parse(value);
 			 var makeSubList = document.createElement("ul");
 			 makeli.appendChild(makeSubList);
+			 getImage(obj.apocalypse[1], makeSubList);
 			 for (var t in obj) {
 			 	var makeSubLi = document.createElement("li");
 			 	makeSubList.appendChild(makeSubLi);
@@ -184,6 +190,21 @@ window.addEventListener("DOMContentLoaded", function() {
 			makeItemLinks(localStorage.key(i),  linksLi);
 		}
 	};
+
+	var getImage = function (catName, makeSubList) {
+		var imageLi = document.createElement("li");
+		makeSubList.appendChild(imageLi);
+		var newImg = document.createElement("img");
+		var setSrc = newImg.setAttribute("src", "images/" + catName + ".png");
+		imageLi.appendChild(newImg);
+	};
+
+	var autoFillData = function () {
+		for ( var n in json) {
+			var id = Math.floor(Math.random()* 1000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
+	}
 
 	var makeItemLinks = function (key, linksLi) {
 		var editLink = document.createElement("a");
@@ -216,7 +237,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		for (var i = 0; i<radio.length; i++) {
 			if (radio[i].value == "Natural" && item.apocalypse[1] == "Natural") {
 				radio[i].setAttribute("checked", "checked");
-			} else if (radio[i].value == "Nuclear" && item.apocalypse[1] == "Nuclear") {
+			} else if (radio[i].value == "Atomic" && item.apocalypse[1] == "Atomic") {
 				radio[i].setAttribute("checked", "checked");
 			} else if (radio[i].value == "Zombie" && item.apocalypse[1] == "Zombie") {
 				radio[i].setAttribute("checked", "checked");
@@ -343,9 +364,10 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 	 };
 	
+	
 	var apocalypseValue;
 	var errMsg = $("error"); 
-	var fearGroups = ["--Fear level--", "In denial still", "Oops I crapped my pants", "Psalm 144:1"];
+	var fearGroups = ["--Fear level--", "Are you kidding me?", "Opps I crapped my pants", "Psalm 144:1"];
 	makeCats();
 	var firearmValue;
 
