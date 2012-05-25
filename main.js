@@ -244,43 +244,43 @@ window.addEventListener("DOMContentLoaded", function() {
 			}
 		}			
 
-		if(item.firearm[1] == "check") {
+		if(item.firearm[1] == "yes") {
 			$("firearm").setAttribute("checked", "checked");
 		}
-		if(item.ammo[1] == "check") {
+		if(item.ammo[1] == "yes") {
 			$("ammo").setAttribute("checked", "checked");
 		}
-		if(item.melee[1] == "check") {
+		if(item.melee[1] == "yes") {
 			$("meleeWeapon").setAttribute("checked", "checked");
 		}
-		if(item.canned[1] == "check") {
+		if(item.canned[1] == "yes") {
 			$("cannedFood").setAttribute("checked", "checked");
 		}
-		if(item.water[1] == "check") {
+		if(item.water[1] == "yes") {
 			$("water").setAttribute("checked", "checked");
 		}
-		if(item.chain[1] == "check") {
+		if(item.chain[1] == "yes") {
 			$("chainMeshSuit").setAttribute("checked", "checked");
 		}
-		if(item.map[1] == "check") {
+		if(item.map[1] == "yes") {
 			$("topographicalMap").setAttribute("checked", "checked");
 		}
-		if(item.leatherman[1] == "check") {
+		if(item.leatherman[1] == "yes") {
 			$("leatherman").setAttribute("checked", "checked");
 		}
-		if(item.rucksack[1] == "check") {
+		if(item.rucksack[1] == "yes") {
 			$("rucksack").setAttribute("checked", "checked");
 		}
-		if(item.boots[1] == "check") {
+		if(item.boots[1] == "yes") {
 			$("boots").setAttribute("checked", "checked");
 		}
-		if(item.matches[1] == "check") {
+		if(item.matches[1] == "yes") {
 			$("matches").setAttribute("checked", "checked");
 		}
-		if(item.p38[1] == "check") {
+		if(item.p38[1] == "yes") {
 			$("p38").setAttribute("checked", "checked");
 		}
-		if(item.intestinal[1] == "check") {
+		if(item.intestinal[1] == "yes") {
 			$("intestinalFortitude").setAttribute("checked", "checked");
 		}
 
@@ -364,7 +364,6 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 	 };
 	
-	
 	var apocalypseValue;
 	var errMsg = $("error"); 
 	var fearGroups = ["--Fear level--", "Are you kidding me?", "Opps I crapped my pants", "Psalm 144:1"];
@@ -377,7 +376,6 @@ window.addEventListener("DOMContentLoaded", function() {
 		clearLink.addEventListener("click", clearLocal);
 		var save = $("submit");
 		save.addEventListener("click", validate);
-
 });
 
 
